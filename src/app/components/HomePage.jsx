@@ -26,6 +26,29 @@ export default function HomePage() {
     },
   ]
 
+
+  const features=[
+      {
+        title: "⚡ Fast & Reliable",
+        desc: "We respect your time and deliver high-quality projects within agreed timelines.",
+      },
+      {
+        title: "🎯 Results-Oriented",
+        desc: "Every solution we build is designed to increase growth and customer engagement.",
+      },
+      {
+        title: "🔒 Secure & Scalable",
+        desc: "Future-proof technology that grows with your business and keeps data safe.",
+      },
+      {
+        title: "🤝 Transparent",
+        desc: "No jargon, no hidden costs — just clear communication and fair pricing.",
+      },
+      {
+        title: "💡 Innovative",
+        desc: "We use modern tools and creative approaches to keep you ahead of the curve.",
+      },
+    ]
   return (
     <main className="min-h-screen bg-gray-50 text-gray-800">
       {/* Hero Section */}
@@ -38,7 +61,7 @@ export default function HomePage() {
           mobile apps, and digital solutions that deliver results.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button asChild className="bg-gray-900 hover:bg-gray-700 text-white px-6 py-3 text-lg">
+          <Button asChild className="bg-gray-900 hover:bg-gray-600 text-white px-6 py-3 text-lg">
             <Link href="/contact">Get a Free Consultation</Link>
           </Button>
           <Button asChild variant="outline" className="px-6 py-3 text-lg">
@@ -89,41 +112,21 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-6 max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-10 text-gray-900">Why Choose Us</h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-lg mb-2">⚡ Fast & Reliable</h3>
-            <p className="text-gray-600">
-              We respect your time and deliver high-quality projects within agreed timelines.
-            </p>
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-lg mb-2">🎯 Results-Oriented</h3>
-            <p className="text-gray-600">
-              Every solution we build is designed to increase growth and customer engagement.
-            </p>
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-lg mb-2">🔒 Secure & Scalable</h3>
-            <p className="text-gray-600">
-              Future-proof technology that grows with your business and keeps data safe.
-            </p>
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-lg mb-2">🤝 Transparent</h3>
-            <p className="text-gray-600">
-              No jargon, no hidden costs — just clear communication and fair pricing.
-            </p>
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-md transition">
-            <h3 className="font-semibold text-lg mb-2">💡 Innovative</h3>
-            <p className="text-gray-600">
-              We use modern tools and creative approaches to keep you ahead of the curve.
-            </p>
-          </div>
-        </div>
-      </section>
+    <section className="py-20 px-6 max-w-6xl mx-auto text-center">
+  <h2 className="text-3xl font-bold mb-10 text-gray-900">Why Choose Us</h2>
+
+  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
+    {features.map((item, i) => (
+      <div
+        key={i}
+        className="p-6 bg-white rounded-xl shadow hover:shadow-md transition"
+      >
+        <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+        <p className="text-gray-600">{item.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Call To Action */}
       <section className="py-20 bg-gray-900 text-white text-center">
@@ -136,10 +139,8 @@ export default function HomePage() {
         </Button>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-950 text-gray-400 py-8 text-center">
-        <p>© {new Date().getFullYear()} StarPine. All rights reserved.</p>
-      </footer>
+     
+     
     </main>
   )
 }

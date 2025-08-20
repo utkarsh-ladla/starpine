@@ -17,7 +17,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           {/* Left - Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-xl font-bold text-gray-900">
+            <Link href="/" className="text-xl font-bold text-gray-600">
               StarPine
             </Link>
           </div>
@@ -52,7 +52,7 @@ export default function Navbar() {
             <Link href="/contact" className="text-gray-700 hover:text-gray-900">
               Contact
             </Link>
-            <Button>Get Started</Button>
+            <Button className="bg-gray-600">Get Started</Button>
           </div>
 
           {/* Mobile menu button */}
