@@ -1,8 +1,10 @@
 import React from 'react'
 import { Button } from './ui/buttons'
+import HomePage from './HomePage'
 function Hero() {
   return (
-    <div>Hero
+    <div>
+      <HomePage/>
     <Button/>
     </div>
   )
