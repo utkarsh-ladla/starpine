@@ -27,28 +27,28 @@ export default function HomePage() {
   ]
 
 
-  const features=[
-      {
-        title: "⚡ Fast & Reliable",
-        desc: "We respect your time and deliver high-quality projects within agreed timelines.",
-      },
-      {
-        title: "🎯 Results-Oriented",
-        desc: "Every solution we build is designed to increase growth and customer engagement.",
-      },
-      {
-        title: "🔒 Secure & Scalable",
-        desc: "Future-proof technology that grows with your business and keeps data safe.",
-      },
-      {
-        title: "🤝 Transparent",
-        desc: "No jargon, no hidden costs — just clear communication and fair pricing.",
-      },
-      {
-        title: "💡 Innovative",
-        desc: "We use modern tools and creative approaches to keep you ahead of the curve.",
-      },
-    ]
+  const features = [
+    {
+      title: "⚡ Fast & Reliable",
+      desc: "We respect your time and deliver high-quality projects within agreed timelines.",
+    },
+    {
+      title: "🎯 Results-Oriented",
+      desc: "Every solution we build is designed to increase growth and customer engagement.",
+    },
+    {
+      title: "🔒 Secure & Scalable",
+      desc: "Future-proof technology that grows with your business and keeps data safe.",
+    },
+    {
+      title: "🤝 Transparent",
+      desc: "No jargon, no hidden costs — just clear communication and fair pricing.",
+    },
+    {
+      title: "💡 Innovative",
+      desc: "We use modern tools and creative approaches to keep you ahead of the curve.",
+    },
+  ]
   return (
     <main className="min-h-screen bg-gray-50 text-gray-800">
       {/* Hero Section */}
@@ -70,21 +70,18 @@ export default function HomePage() {
         </div>
       </section>
 
-<section className="relative bg-gray-50 ">
-  <div className="max-w-full mx-4">
-    <div className="overflow-hidden rounded-xl shadow-xl">
-      <video
-        src="https://v.ftcdn.net/00/48/31/12/700_F_48311251_QBFZ12uyt4op5MORsYTYiTxn6AXu1ZhI_ST.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full  object-cover"
-        aria-hidden="true"
-      />
-    </div>
-  </div>
-</section>
+      <div className="bg-transparent flex w-full h-[800px] justify-center items-center border">
+        <video
+          src="https://v.ftcdn.net/00/48/31/12/700_F_48311251_QBFZ12uyt4op5MORsYTYiTxn6AXu1ZhI_ST.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-[1280px] h-[720px] object-cover rounded-4xl"
+          aria-hidden="true"
+        />
+      </div>
+
 
 
       {/* Services Section */}
@@ -112,21 +109,21 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-    <section className="py-20 px-6 max-w-6xl mx-auto text-center">
-  <h2 className="text-3xl font-bold mb-10 text-gray-900">Why Choose Us</h2>
+      <section className="py-20 px-6 max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-10 text-gray-900">Why Choose Us</h2>
 
-  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
-    {features.map((item, i) => (
-      <div
-        key={i}
-        className="p-6 bg-white rounded-xl shadow hover:shadow-md transition"
-      >
-        <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-        <p className="text-gray-600">{item.desc}</p>
-      </div>
-    ))}
-  </div>
-</section>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
+          {features.map((item, i) => (
+            <div
+              key={i}
+              className="p-6 bg-white rounded-xl shadow hover:shadow-md transition"
+            >
+              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+              <p className="text-gray-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Call To Action */}
       <section className="py-20 bg-gray-900 text-white text-center">
@@ -139,8 +136,8 @@ export default function HomePage() {
         </Button>
       </section>
 
-     
-     
+
+
     </main>
   )
 }
