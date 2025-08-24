@@ -5,7 +5,7 @@ function Page() {
   return (
 <>
     {/* upper section */}
-  <div className="flex flex-col md:flex-row gap-6 px-10 pb-20">
+  <div className="flex flex-col md:flex-row gap-6 px-10 pb-20 mt-4">
 
   <div className="w-full md:w-1/2  overflow-hidden rounded-2xl">
   <iframe
