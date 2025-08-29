@@ -1,30 +1,108 @@
 // app/page.tsx
-
+'use client'
 import Link from "next/link"
 import { Button } from "./ui/buttons"
 
 
 export default function HomePage() {
-  const services = [
-    {
-      title: "Web Development",
-      description:
-        "We design and develop sleek, responsive websites that not only look stunning but also convert visitors into customers.",
-      href: "/services/web",
-    },
-    {
-      title: "Mobile Apps",
-      description:
-        "From iOS to Android, we craft powerful, user-friendly mobile applications that keep your audience engaged on the go.",
-      href: "/services/mobile",
-    },
-    {
-      title: "SEO & Growth",
-      description:
-        "Boost your online presence with SEO-optimized solutions that rank higher, load faster, and attract the right audience.",
-      href: "/services/seo",
-    },
-  ]
+  // Drag to scroll functionality
+  const handleMouseDown = (e) => {
+    const slider = e.currentTarget;
+    slider.isDown = true;
+    slider.startX = e.pageX - slider.offsetLeft;
+    slider.scrollLeft = slider.scrollLeft;
+  };
+
+  const handleMouseLeave = (e) => {
+    e.currentTarget.isDown = false;
+  };
+
+  const handleMouseUp = (e) => {
+    e.currentTarget.isDown = false;
+  };
+
+  const handleMouseMove = (e) => {
+    const slider = e.currentTarget;
+    if (!slider.isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - slider.startX) * 1.5; // Scroll speed
+    slider.scrollLeft = slider.scrollLeft - walk;
+    slider.startX = x; // Update start position for smoother scrolling
+  };
+
+const services = [
+  {
+    title: "Web Development",
+    description: "Modern, scalable and responsive websites tailored to your business needs",
+    bgColor: "bg-neutral-900 text-white", // dark card with white text
+    services: [
+      "Custom Website Development",
+      "E-commerce Development",
+      "CMS Development (WordPress, Joomla, etc.)",
+      "Landing Page Design",
+      "Website Maintenance & Support"
+    ]
+  },
+  {
+    title: "App Development",
+    description: "High-performance mobile and web applications with seamless user experience",
+    bgColor: "bg-gray-800 text-white", // slightly lighter black tone
+    services: [
+      "iOS App Development",
+      "Android App Development",
+      "Cross-Platform App Development (React Native, Flutter)",
+      "Progressive Web Apps (PWA)",
+      "App Maintenance & Support"
+    ]
+  },
+  {
+    title: "Content Programs",
+    description: "Channel-specific content at scale",
+    bgColor: "bg-gray-700 text-white",
+    services: [
+      "Branded Content Library",
+      "Motion Design & 3D Content",
+      "Custom Content Program"
+    ]
+  },
+  {
+    title: "Social Media Programs",
+    description: "Increase reach and improve engagement",
+    bgColor: "bg-neutral-800 text-white",
+    services: [
+      "Platform-Specific Content",
+      "Paid Campaign Content",
+      "Social Media Management",
+      "Influencer Programs",
+      "Custom Social Media Program"
+    ]
+  },
+  {
+    title: "Paid Media",
+    description: "Drive conversion with the right audience",
+    bgColor: "bg-gray-900 text-white",
+    services: [
+      "Basic Media",
+      "Intermediate Paid Media",
+      "Advanced Paid Media",
+      "Custom Paid Media Program"
+    ]
+  },
+  {
+    title: "Brand Programs",
+    description: "Aligning values, brand and identity",
+    bgColor: "bg-neutral-700 text-white",
+    services: [
+      "Brand New",
+      "Brand Refresh",
+      "Brand Extension",
+      "Website Creation",
+      "Custom Brand Program"
+    ]
+  }
+];
+
 
 
   const features = [
@@ -49,10 +127,61 @@ export default function HomePage() {
       desc: "We use modern tools and creative approaches to keep you ahead of the curve.",
     },
   ]
+
+const ServiceCard = ({ title, description, bgColor, textColor, services }) => {
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-800">
+    <div
+      className={`${bgColor} ${textColor} rounded-2xl p-8 h-[440px] min-w-[520px] flex flex-col justify-between border border-gray-200 shadow-sm`}
+    >
+      <div>
+        <h3 className="text-2xl font-bold mb-4">{title}</h3>
+        <p className="mb-8 text-sm opacity-80">{description}</p>
+
+        <div className="mb-8">
+          <h4 className="text-xs font-bold mb-4 uppercase tracking-wider opacity-70">
+            Services
+          </h4>
+          <div className="space-y-2">
+            {services.map((service, index) => (
+              <div key={index} className="text-sm font-medium opacity-90">
+                {service}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <button className="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors self-start">
+        View Programs
+      </button>
+    </div>
+  );
+};
+
+
+
+  return (
+    <>
+      <style jsx>{`
+        .services-container {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          cursor: grab;
+          user-select: none;
+        }
+        .services-container::-webkit-scrollbar { 
+          display: none;
+        }
+        .services-container:active {
+          cursor: grabbing;
+        }
+        .services-container.dragging {
+          cursor: grabbing !important;
+        }
+      `}</style>
+      <main className="min-h-screen  text-gray-800">
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center py-20 px-6 bg-gradient-to-b from-gray-100 to-gray-50">
+      <section className="relative flex flex-col items-center justify-center text-center py-20 px-6 bg-gradient-to-b ">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
           Websites & Apps That <span className="text-gray-600">Fuel Growth</span>
         </h1>
@@ -77,36 +206,37 @@ export default function HomePage() {
           loop
           muted
           playsInline
-          className="w-[1280px] h-[720px] object-cover rounded-4xl"
+          className="w-full h-[800px] object-cover rounded-4xl mx-4 "
           aria-hidden="true"
         />
       </div>
 
 
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-12 text-gray-900">What We Do Best</h2>
-          <div className="grid gap-8 md:grid-cols-3">
+ {/* Services Section */}
+      <section id="services" className="py-20 bg-transparent">
+        <div className="w-full mx-auto px-6">
+          <h2 className="text-xl font-bold mb-8 text-gray-900 uppercase tracking-wide">OUR SERVICES</h2>
+          <div 
+            className="flex flex-row gap-6 overflow-x-auto services-container"
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+          >
             {services.map((service, index) => (
-              <div
+              <ServiceCard
                 key={index}
-                className="p-8 bg-white shadow rounded-2xl hover:shadow-xl transition flex flex-col items-start text-left"
-              >
-                <h3 className="text-2xl font-semibold mb-3 text-gray-800">{service.title}</h3>
-                <p className="text-gray-600 mb-6 flex-grow">{service.description}</p>
-                <Link
-                  href={service.href}
-                  className="text-gray-900 font-medium hover:underline"
-                >
-                  Learn more →
-                </Link>
-              </div>
+                title={service.title}
+                description={service.description}
+                bgColor={service.bgColor}
+                services={service.services} 
+              />
             ))}
           </div>
         </div>
       </section>
+
 
       {/* Why Choose Us */}
       <section className="py-20 px-6 max-w-6xl mx-auto text-center">
@@ -127,9 +257,9 @@ export default function HomePage() {
 
       {/* Call To Action */}
       <section className="py-20 bg-gray-900 text-white text-center">
-        <h2 className="text-4xl font-bold mb-6">Let’s Build Something Amazing</h2>
+        <h2 className="text-4xl font-bold mb-6">Let's Build Something Amazing</h2>
         <p className="text-lg text-gray-300 mb-8">
-          Whether it’s a website, mobile app, or custom solution — we’re here to make it happen.
+          Whether it's a website, mobile app, or custom solution — we're here to make it happen.
         </p>
         <Button asChild className="bg-white text-gray-900 hover:bg-gray-200 px-8 py-4 text-lg">
           <Link href="/contact">Request a Proposal</Link>
@@ -138,6 +268,7 @@ export default function HomePage() {
 
 
 
-    </main>
+          </main>
+    </>
   )
 }
