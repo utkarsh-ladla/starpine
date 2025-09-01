@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -15,7 +14,7 @@ import {
   ShoppingCart,
   Settings,
   Star,
-  Award
+  Award,
 } from "lucide-react";
 import { Button } from "@/app/components/ui/buttons";
 
@@ -31,7 +30,6 @@ function ModernButton({ children, className = "", ...props }) {
 }
 
 function AnimatedCounter({ end, duration = 2000 }) {
-
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -112,64 +110,73 @@ function Page() {
     {
       icon: Code,
       title: "Frontend Development",
-      description: "Modern, responsive, and accessible UI with React, Next.js, and Tailwind CSS. We create beautiful interfaces that work flawlessly across all devices."
+      description:
+        "Modern, responsive, and accessible UI with React, Next.js, and Tailwind CSS. We create beautiful interfaces that work flawlessly across all devices.",
     },
     {
       icon: Database,
       title: "Backend Development",
-      description: "Scalable APIs & secure server-side solutions with Node.js, Express, and robust databases. Built for performance and security."
+      description:
+        "Scalable APIs & secure server-side solutions with Node.js, Express, and robust databases. Built for performance and security.",
     },
     {
       icon: Globe,
       title: "Full-Stack Solutions",
-      description: "End-to-end development from concept to deployment. Complete web applications that handle everything your business needs."
+      description:
+        "End-to-end development from concept to deployment. Complete web applications that handle everything your business needs.",
     },
     {
       icon: ShoppingCart,
       title: "E-Commerce Development",
-      description: "Custom online stores with Shopify, WooCommerce, or fully custom solutions. Optimized for conversions and user experience."
+      description:
+        "Custom online stores with Shopify, WooCommerce, or fully custom solutions. Optimized for conversions and user experience.",
     },
     {
       icon: Settings,
       title: "CMS & Custom Websites",
-      description: "Powerful content management with WordPress, Strapi, or headless CMS solutions. Easy to manage, built to scale."
+      description:
+        "Powerful content management with WordPress, Strapi, or headless CMS solutions. Easy to manage, built to scale.",
     },
     {
       icon: Shield,
       title: "Maintenance & Support",
-      description: "Ongoing support, updates, and security for your website. We keep your site running smoothly and securely 24/7."
-    }
+      description:
+        "Ongoing support, updates, and security for your website. We keep your site running smoothly and securely 24/7.",
+    },
   ];
 
   const processSteps = [
     {
       step: "1",
       title: "Discovery",
-      description: "We dive deep to understand your goals, vision, and target audience to create the perfect strategy."
+      description:
+        "We dive deep to understand your goals, vision, and target audience to create the perfect strategy.",
     },
     {
       step: "2",
       title: "Design",
-      description: "Detailed wireframes & stunning UI/UX prototypes that bring your vision to life with modern design principles."
+      description:
+        "Detailed wireframes & stunning UI/UX prototypes that bring your vision to life with modern design principles.",
     },
     {
       step: "3",
       title: "Development",
-      description: "Expert frontend & backend coding using the latest technologies and best practices for optimal performance."
+      description:
+        "Expert frontend & backend coding using the latest technologies and best practices for optimal performance.",
     },
     {
       step: "4",
       title: "Launch",
-      description: "Thorough testing, seamless deployment, and ongoing support to ensure your success from day one."
-    }
+      description:
+        "Thorough testing, seamless deployment, and ongoing support to ensure your success from day one.",
+    },
   ];
 
   return (
-    <div className="bg-gradient-to-br from-slate-50 to-blue-50 text-slate-900 overflow-hidden">
+    <div className="bg-gradient-to-br from-slate-50 to-blue-50 text-slate-900 overflow-hidden mb-28">
       {/* HERO SECTION */}
-     
-      
-  <section className="relative bg-gradient-to-r from-gray-600 to-teal-500 text-teal-100 h-[80vh] flex flex-col justify-center items-center text-center px-6">
+
+      <section className="relative bg-gradient-to-r from-gray-600 to-teal-500 text-teal-100 h-[80vh] flex flex-col justify-center items-center text-center px-6">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
           Web Development Services
         </h1>
@@ -177,7 +184,10 @@ function Page() {
           We craft high-performing, scalable, and beautiful websites tailored to
           your business goals.
         </p>
-        <Button size="lg" className="rounded-xl bg-white text-gray-600 font-semibold">
+        <Button
+          size="lg"
+          className="rounded-xl bg-white text-gray-600 font-semibold"
+        >
           Get Started
         </Button>
       </section>
@@ -188,24 +198,31 @@ function Page() {
             Why Choose Our Services?
           </h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            From innovative startups to established enterprises, we help brands build seamless digital experiences. Our team of full-stack developers, UI/UX designers, and cloud experts ensure your website is modern, lightning-fast, and future-proof.
+            From innovative startups to established enterprises, we help brands
+            build seamless digital experiences. Our team of full-stack
+            developers, UI/UX designers, and cloud experts ensure your website
+            is modern, lightning-fast, and future-proof.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           <div className="text-center">
             <div className="w-16 h-16 bg-gradient-to-r from-gray-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Award className="text-white" size={28} />
             </div>
             <h3 className="text-xl font-bold mb-2">Expert Team</h3>
-            <p className="text-slate-600">Certified developers with 5+ years experience</p>
+            <p className="text-slate-600">
+              Certified developers with 5+ years experience
+            </p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 bg-gradient-to-r from-teal-100 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Zap className="text-white" size={28} />
             </div>
             <h3 className="text-xl font-bold mb-2">Lightning Fast</h3>
-            <p className="text-slate-600">Optimized for speed and performance</p>
+            <p className="text-slate-600">
+              Optimized for speed and performance
+            </p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 bg-gradient-to-r from-gray-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -228,7 +245,7 @@ function Page() {
               Comprehensive solutions tailored to your unique business needs
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, i) => (
               <ServiceCard
@@ -254,7 +271,7 @@ function Page() {
               A proven methodology that delivers exceptional results every time
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((item, i) => (
               <ProcessStep
@@ -275,34 +292,47 @@ function Page() {
           <h2 className="text-4xl font-bold mb-16 bg-gradient-to-r from-gray-700 to-teal-600 bg-clip-text text-transparent">
             What Our Clients Say
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 name: "Sarah Johnson",
                 company: "TechStart Inc.",
-                text: "Exceptional work! Our website traffic increased by 300% after the redesign. The team was professional and delivered beyond expectations."
+                text: "Exceptional work! Our website traffic increased by 300% after the redesign. The team was professional and delivered beyond expectations.",
               },
               {
                 name: "Michael Chen",
                 company: "E-Commerce Plus",
-                text: "The custom e-commerce solution they built transformed our business. Sales are up 250% and the user experience is incredible."
+                text: "The custom e-commerce solution they built transformed our business. Sales are up 250% and the user experience is incredible.",
               },
               {
                 name: "Emily Rodriguez",
                 company: "Creative Agency",
-                text: "Fast, reliable, and innovative. They understood our vision perfectly and delivered a website that truly represents our brand."
-              }
+                text: "Fast, reliable, and innovative. They understood our vision perfectly and delivered a website that truly represents our brand.",
+              },
             ].map((testimonial, i) => (
-              <div key={i} className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-3xl shadow-lg">
+              <div
+                key={i}
+                className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-3xl shadow-lg"
+              >
                 <div className="flex justify-center mb-4">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="text-yellow-400 fill-current" size={20} />
+                    <Star
+                      key={j}
+                      className="text-yellow-400 fill-current"
+                      size={20}
+                    />
                   ))}
                 </div>
-                <p className="text-slate-600 mb-6 italic">"{testimonial.text}"</p>
-                <div className="font-semibold text-slate-800">{testimonial.name}</div>
-                <div className="text-slate-500 text-sm">{testimonial.company}</div>
+                <p className="text-slate-600 mb-6 italic">
+                  "{testimonial.text}"
+                </p>
+                <div className="font-semibold text-slate-800">
+                  {testimonial.name}
+                </div>
+                <div className="text-slate-500 text-sm">
+                  {testimonial.company}
+                </div>
               </div>
             ))}
           </div>
@@ -313,22 +343,25 @@ function Page() {
       <section className="py-20 bg-gradient-to-r from-gray-600 via-teal-600 to-teal-100 text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <h2 className="text-5xl font-bold mb-6">Ready to Build Your Website?</h2>
+          <h2 className="text-5xl font-bold mb-6">
+            Ready to Build Your Website?
+          </h2>
           <p className="mb-8 text-xl leading-relaxed">
-            Let's turn your vision into a powerful digital presence that drives results and grows your business.
+            Let's turn your vision into a powerful digital presence that drives
+            results and grows your business.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <ModernButton className="bg-white text-gray-700 hover:bg-gray-100 flex items-center gap-2">
               Start Your Project
               <ArrowRight size={20} />
             </ModernButton>
-            
+
             <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-2xl hover:bg-white hover:text-gray-700 transition-all duration-300">
               Schedule Consultation
             </button>
           </div>
-          
+
           <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div>
               <div className="text-3xl font-bold mb-2">
@@ -353,19 +386,23 @@ function Page() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12 ">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <div className="mb-8">
             <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-            <p className="text-slate-400 mb-6">Contact us today for a free consultation and project quote.</p>
+            <p className="text-slate-400 mb-6">
+              Contact us today for a free consultation and project quote.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div className="text-slate-300">📧 hello@webdev.com</div>
               <div className="text-slate-300">📞 +1 (555) 123-4567</div>
             </div>
           </div>
-          
+
           <div className="border-t border-slate-700 pt-8">
-            <p className="text-slate-400">© 2024 Web Development Services. All rights reserved.</p>
+            <p className="text-slate-400">
+              © 2024 Web Development Services. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
@@ -374,6 +411,3 @@ function Page() {
 }
 
 export default Page;
-
-
-
