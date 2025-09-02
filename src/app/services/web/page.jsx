@@ -173,7 +173,7 @@ function Page() {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-slate-50 to-blue-50 text-slate-900 overflow-hidden mb-28">
+    <div className="bg-gradient-to-br from-slate-50 to-blue-50 text-slate-900 overflow-hidden">
       {/* HERO SECTION */}
 
       <section className="relative bg-gradient-to-r from-gray-600 to-teal-500 text-teal-100 h-[80vh] flex flex-col justify-center items-center text-center px-6">

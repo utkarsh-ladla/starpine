@@ -9,7 +9,7 @@ export default function LandingPage() {
   return (
     <>
       <Hero />
-     <Footer/>
+     {/* <Footer/> */}
       {/* <Testimonials /> */}
       {/* <Pricing /> */}
       {/* <CTA /> */}
