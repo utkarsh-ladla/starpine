@@ -90,16 +90,7 @@ export default function LayeredScroll() {
                 <p>{section.text}</p>
               </div>
 
-              {/* Video */}
-              {/* <div className="w-full md:w-1/2 overflow-hidden rounded-2xl mt-2 mx-10">
-                <iframe
-                  src={section.video}
-                  className="w-[120%] h-[120%] -translate-x-[10%] -translate-y-[10%] border-0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  title={`video-${section.id}`}
-                />
-              </div> */}
+             
 
               <div className="w-full md:w-1/2 relative overflow-hidden rounded-2xl mt-10 mx-10 h-80">
                 <iframe

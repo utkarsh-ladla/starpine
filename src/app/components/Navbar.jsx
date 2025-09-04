@@ -84,12 +84,19 @@ export default function Navbar() {
                   >
                     Mobile Apps
                   </a>
-                  <a
+                  {/* <a
                     href="/services/seo"
                     onClick={() => setDropdownOpen(false)}
                     className="block px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg mx-2 transition-all duration-200 font-medium"
                   >
                     SEO Optimization
+                  </a> */}
+                  <a
+                    href="/services/video"
+                    onClick={() => setDropdownOpen(false)}
+                    className="block px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg mx-2 transition-all duration-200 font-medium"
+                  >
+                    Video Editing
                   </a>
                 </div>
               )}
