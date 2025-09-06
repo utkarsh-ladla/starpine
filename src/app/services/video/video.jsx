@@ -92,7 +92,7 @@ const Videos = () => {
             <div>
               <div
                 key={clip.id}
-                className="cursor-pointer rounded-lg overflow-hidden bg-gray-100 shadow-md hover:shadow-lg transition-shadow"
+                className="cursor-pointer rounded-lg overflow-hidden bg-gray-100  "
                 onClick={() => openModal(clip)}
               >
                 <div className="aspect-[10/12]">
