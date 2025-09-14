@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link"
 import { Button } from "./ui/buttons"
-
+import CaseStudiesSection from "./CaseStudiesSection";
 
 export default function HomePage() {
   // Drag to scroll functionality
@@ -34,7 +34,10 @@ const services = [
   {
     title: "Web Development",
     description: "Modern, scalable and responsive websites tailored to your business needs",
-    bgColor: "bg-neutral-900 text-white", // dark card with white text
+    bgColor: "bg-white", // Clean white background
+    textColor: "text-gray-900", // Dark text for contrast
+    accentColor: "bg-blue-50", // Soft blue accent
+    borderColor: "border-blue-100",
     services: [
       "Custom Website Development",
       "E-commerce Development",
@@ -46,7 +49,10 @@ const services = [
   {
     title: "App Development",
     description: "High-performance mobile and web applications with seamless user experience",
-    bgColor: "bg-gray-800 text-white", // slightly lighter black tone
+    bgColor: "bg-white",
+    textColor: "text-gray-900",
+    accentColor: "bg-emerald-50",
+    borderColor: "border-emerald-100",
     services: [
       "iOS App Development",
       "Android App Development",
@@ -58,7 +64,10 @@ const services = [
   {
     title: "Content Programs",
     description: "Channel-specific content at scale",
-    bgColor: "bg-gray-700 text-white",
+    bgColor: "bg-white",
+    textColor: "text-gray-900",
+    accentColor: "bg-purple-50",
+    borderColor: "border-purple-100",
     services: [
       "Branded Content Library",
       "Motion Design & 3D Content",
@@ -68,7 +77,10 @@ const services = [
   {
     title: "Social Media Programs",
     description: "Increase reach and improve engagement",
-    bgColor: "bg-neutral-800 text-white",
+    bgColor: "bg-white",
+    textColor: "text-gray-900",
+    accentColor: "bg-pink-50",
+    borderColor: "border-pink-100",
     services: [
       "Platform-Specific Content",
       "Paid Campaign Content",
@@ -80,7 +92,10 @@ const services = [
   {
     title: "Paid Media",
     description: "Drive conversion with the right audience",
-    bgColor: "bg-gray-900 text-white",
+    bgColor: "bg-white",
+    textColor: "text-gray-900",
+    accentColor: "bg-amber-50",
+    borderColor: "border-amber-100",
     services: [
       "Basic Media",
       "Intermediate Paid Media",
@@ -91,7 +106,10 @@ const services = [
   {
     title: "Brand Programs",
     description: "Aligning values, brand and identity",
-    bgColor: "bg-neutral-700 text-white",
+    bgColor: "bg-white",
+    textColor: "text-gray-900",
+    accentColor: "bg-rose-50",
+    borderColor: "border-rose-100",
     services: [
       "Brand New",
       "Brand Refresh",
@@ -101,8 +119,6 @@ const services = [
     ]
   }
 ];
-
-
 
   const features = [
     {
@@ -127,60 +143,49 @@ const services = [
     },
   ]
 
-const ServiceCard = ({ title, description, bgColor, textColor, services }) => {
+const ServiceCard = ({ title, description, bgColor, textColor, accentColor, borderColor, services }) => {
   return (
     <div
-      className={`${bgColor} ${textColor} rounded-2xl p-8 h-[440px] min-w-[520px] flex flex-col justify-between border border-gray-200 shadow-sm`}
+      className={`${bgColor} ${textColor} ${borderColor} rounded-3xl p-8 h-[480px] min-w-[380px] flex flex-col justify-between border shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
     >
-      <div>
-        <h3 className="text-2xl font-bold mb-4">{title}</h3>
-        <p className="mb-8 text-sm opacity-80">{description}</p>
+      {/* Header with accent color */}
+      <div className="flex-1">
+        <div className={`${accentColor} w-12 h-12 rounded-2xl mb-6 flex items-center justify-center`}>
+          <div className="w-6 h-6 bg-current opacity-20 rounded-lg"></div>
+        </div>
+        
+        <h3 className="text-2xl font-semibold mb-4 leading-tight">{title}</h3>
+        <p className="mb-8 text-sm text-gray-600 leading-relaxed">{description}</p>
 
-        <div className="mb-8">
-          <h4 className="text-xs font-bold mb-4 uppercase tracking-wider opacity-70">
-            Services
-          </h4>
-          <div className="space-y-2">
-            {services.map((service, index) => (
-              <div key={index} className="text-sm font-medium opacity-90">
-                {service}
-              </div>
-            ))}
-          </div>
+        <div className="space-y-3">
+          {services.slice(0, 4).map((service, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+              <span className="text-gray-700 text-sm leading-relaxed">{service}</span>
+            </div>
+          ))}
+          {services.length > 4 && (
+            <div className="flex items-center gap-3">
+              <div className="w-1.5 h-1.5 bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
+              <span className="text-gray-500 text-sm">+{services.length - 4} more services</span>
+            </div>
+          )}
         </div>
       </div>
 
-      <button className="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors self-start">
-        View Programs
-      </button>
+      <div className="pt-6">
+        <button className="w-full bg-gray-50 hover:bg-gray-100 text-gray-800 px-6 py-4 rounded-2xl text-sm font-medium transition-colors border border-gray-100 hover:border-gray-200">
+          Learn More
+        </button>
+      </div>
     </div>
   );
 };
 
-
-
   return (
-    <>
-      <style jsx>{`
-        .services-container {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-          cursor: grab;
-          user-select: none;
-        }
-        .services-container::-webkit-scrollbar { 
-          display: none;
-        }
-        .services-container:active {
-          cursor: grabbing;
-        }
-        .services-container.dragging {
-          cursor: grabbing !important;
-        }
-      `}</style>
-      <main className="min-h-screen  text-gray-800">
+    <main className="min-h-screen text-gray-800 bg-gray-50">
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center py-20 px-6 bg-gradient-to-b ">
+      <section className="relative flex flex-col items-center justify-center text-center py-20 px-6 bg-white">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
           Websites & Apps That <span className="text-gray-600">Fuel Growth</span>
         </h1>
@@ -198,26 +203,28 @@ const ServiceCard = ({ title, description, bgColor, textColor, services }) => {
         </div>
       </section>
 
-      <div className="bg-transparent flex w-full h-[800px] justify-center items-center border">
+      <div className="bg-white flex w-full h-[800px] justify-center items-center">
         <video
           src="https://v.ftcdn.net/00/48/31/12/700_F_48311251_QBFZ12uyt4op5MORsYTYiTxn6AXu1ZhI_ST.mp4"
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-[800px] object-cover rounded-4xl mx-4 "
+          className="w-full h-[800px] object-cover rounded-4xl mx-4"
           aria-hidden="true"
         />
       </div>
 
-
-
- {/* Services Section */}
-      <section id="services" className="py-20 bg-transparent">
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-white">
         <div className="w-full mx-auto px-6">
           <h2 className="text-xl font-bold mb-8 text-gray-900 uppercase tracking-wide">OUR SERVICES</h2>
           <div 
-            className="flex flex-row gap-6 overflow-x-auto services-container"
+            className="flex flex-row gap-6 overflow-x-auto pb-4 scrollbar-hide cursor-grab select-none active:cursor-grabbing"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
             onMouseDown={handleMouseDown}
             onMouseLeave={handleMouseLeave}
             onMouseUp={handleMouseUp}
@@ -229,6 +236,9 @@ const ServiceCard = ({ title, description, bgColor, textColor, services }) => {
                 title={service.title}
                 description={service.description}
                 bgColor={service.bgColor}
+                textColor={service.textColor}
+                accentColor={service.accentColor}
+                borderColor={service.borderColor}
                 services={service.services} 
               />
             ))}
@@ -236,24 +246,8 @@ const ServiceCard = ({ title, description, bgColor, textColor, services }) => {
         </div>
       </section>
 
-
       {/* Why Choose Us */}
-      <section className="py-20 px-6 max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-10 text-gray-900">Why Choose Us</h2>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left">
-          {features.map((item, i) => (
-            <div
-              key={i}
-              className="p-6 bg-white rounded-xl shadow hover:shadow-md transition"
-            >
-              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
+     <CaseStudiesSection/>
       {/* Call To Action */}
       <section className="py-20 bg-gray-900 text-white text-center">
         <h2 className="text-4xl font-bold mb-6">Let's Build Something Amazing</h2>
@@ -263,11 +257,14 @@ const ServiceCard = ({ title, description, bgColor, textColor, services }) => {
         <Button asChild className="bg-white text-gray-900 hover:bg-gray-200 px-8 py-4 text-lg">
           <Link href="/contact">Request a Proposal</Link>
         </Button>
-      </section>
+      </section>  
 
-
-
-          </main>
-    </>
+      {/* Custom CSS for scrollbar hiding */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+    </main>
   )
 }
