@@ -146,7 +146,7 @@ const services = [
 const ServiceCard = ({ title, description, bgColor, textColor, accentColor, borderColor, services }) => {
   return (
     <div
-      className={`${bgColor} ${textColor} ${borderColor} rounded-3xl p-8 h-[480px] min-w-[380px] flex flex-col justify-between border shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+      className={`${bgColor} ${textColor} ${borderColor} rounded-3xl p-8 min-h-[480px] min-w-[380px] flex flex-col justify-between border shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
     >
       {/* Header with accent color */}
       <div className="flex-1">

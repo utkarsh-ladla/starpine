@@ -54,73 +54,10 @@ const CaseStudiesSection = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
-      <section className="py-20 px-6 max-w-7xl mx-auto text-center">
-        <div className="mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Building brands,<br />
-            <span className="text-blue-600">one pixel at a time</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Work that worked (but never felt like work).
-          </p>
-          <button className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors font-semibold">
-            EXPLORE ALL CASE STUDIES
-          </button>
-        </div>
-      </section>
 
-      {/* Case Studies Grid */}
-      <section className="pb-20 px-6 max-w-7xl mx-auto">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.map((study) => (
-            <div
-              key={study.id}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={study.image}
-                  alt={study.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              
-              {/* Content */}
-              <div className="p-6">
-                <div className="mb-3">
-                  <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
-                    {study.company}
-                  </span>
-                  <div className="text-xs text-gray-500 mt-1">
-                    {study.category}
-                  </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  {study.title}
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  {study.description}
-                </p>
-                
-                <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">
-                  <span className="text-sm">View Case Study</span>
-                  <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 px-6 max-w-6xl mx-auto text-center bg-white">
+      <section className="py-20 px-6 w-full mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Why Choose Us</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
           We combine creativity, technology, and expertise to deliver solutions that help your business stand out. Here's why clients trust us:
