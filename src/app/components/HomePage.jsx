@@ -148,7 +148,7 @@ const services = [
 const ServiceCard = ({ title, description, bgColor, textColor, accentColor, borderColor, services }) => {
   return (
     <div
-      className={`${bgColor} ${textColor} ${borderColor} rounded-3xl p-8 min-h-[480px] min-w-[380px] flex flex-col justify-between border shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
+      className={` ${bgColor} ${textColor} ${borderColor} rounded-3xl p-8 min-h-[480px] min-w-[380px] flex flex-col justify-between border shadow-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
     >
       {/* Header with accent color */}
       <div className="flex-1">
@@ -185,7 +185,7 @@ const ServiceCard = ({ title, description, bgColor, textColor, accentColor, bord
 };
 
   return (
-    <main className="min-h-screen text-gray-800 bg-gray-50">
+    <main className="p-16 min-h-screen text-gray-800 ">
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center text-center py-20 px-6 bg-white">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
@@ -205,7 +205,7 @@ const ServiceCard = ({ title, description, bgColor, textColor, accentColor, bord
         </div>
       </section>
 
-      <div className="bg-white flex w-full h-[800px] justify-center items-center px-16  ">
+      <div className="bg-white flex w-full h-[800px] justify-center items-center">
         <video
            src="/video/home_vdo.mp4"
           // src="https://v.ftcdn.net/00/48/31/12/700_F_48311251_QBFZ12uyt4op5MORsYTYiTxn6AXu1ZhI_ST.mp4"
