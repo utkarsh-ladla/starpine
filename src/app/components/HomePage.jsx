@@ -3,6 +3,8 @@ import Link from "next/link"
 import { Button } from "./ui/buttons"
 import CaseStudiesSection from "./CaseStudiesSection";
 
+// import homeVideo from '../public/home-vdo.mp4';
+
 export default function HomePage() {
   // Drag to scroll functionality
   const handleMouseDown = (e) => {
@@ -203,15 +205,16 @@ const ServiceCard = ({ title, description, bgColor, textColor, accentColor, bord
         </div>
       </section>
 
-      <div className="bg-white flex w-full h-[800px] justify-center items-center">
+      <div className="bg-white flex w-full h-[800px] justify-center items-center px-16  ">
         <video
-          src="https://v.ftcdn.net/00/48/31/12/700_F_48311251_QBFZ12uyt4op5MORsYTYiTxn6AXu1ZhI_ST.mp4"
+           src="/video/home_vdo.mp4"
+          // src="https://v.ftcdn.net/00/48/31/12/700_F_48311251_QBFZ12uyt4op5MORsYTYiTxn6AXu1ZhI_ST.mp4"
           autoPlay
           loop
           muted
           playsInline
           className="w-full h-[800px] object-cover rounded-4xl mx-4"
-          aria-hidden="true"
+          aria-hidden="true"  
         />
       </div>
 
@@ -240,7 +243,7 @@ const ServiceCard = ({ title, description, bgColor, textColor, accentColor, bord
                 accentColor={service.accentColor}
                 borderColor={service.borderColor}
                 services={service.services} 
-              />
+              />  
             ))}
           </div>
         </div>

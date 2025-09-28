@@ -106,13 +106,13 @@ export default function Navbar() {
                   >
                     Video Editing
                   </a>
-                  <a
+                  {/* <a
                     href="/services/vfx"
                     onClick={() => setDropdownOpen(false)}
                     className="block px-4 py-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg mx-2 transition-all duration-200 font-medium"
                   >
                     VFX
-                  </a>
+                  </a> */}
                   
                 </div>
               )}

@@ -9,12 +9,16 @@ function Page() {
         {/* Video Section */}
         <div className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-lg">
           <div className="aspect-video w-full">
-            <iframe
-              src="https://player.vimeo.com/video/969148663?autoplay=1&loop=1&muted=1&background=1&playsinline=1"
+            <video
+              src="/video/about_1.mp4"
               className="w-full h-full rounded-2xl border-0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
-            ></iframe>
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
           </div>
         </div>
 
