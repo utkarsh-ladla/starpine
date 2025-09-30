@@ -185,89 +185,84 @@ const ServiceCard = ({ title, description, bgColor, textColor, accentColor, bord
 };
 
   return (
-    <main className="p-16 min-h-screen text-gray-800 ">
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center py-20 px-6 bg-white">
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
-          Websites & Apps That <span className="text-gray-600">Fuel Growth</span>
-        </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mb-10">
-          We help startups and businesses bring ideas to life with high-performing websites,
-          mobile apps, and digital solutions that deliver results.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button asChild className="bg-gray-900 hover:bg-gray-600 text-white px-6 py-3 text-lg">
-            <Link href="/contact">Get a Free Consultation</Link>
-          </Button>
-          <Button asChild variant="outline" className="px-6 py-3 text-lg">
-            <Link href="/services/web">See Our Work</Link>
-          </Button>
-        </div>
-      </section>
+<main className="px-4 sm:px-6 lg:px-16 min-h-screen text-gray-800">
+  {/* Hero Section */}
+  <section className="relative flex flex-col items-center justify-center text-center py-16 sm:py-20 px-4 bg-white">
+    <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
+      Websites & Apps That <span className="text-gray-600">Fuel Growth</span>
+    </h1>
+    <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mb-10">
+      We help startups and businesses bring ideas to life with high-performing websites,
+      mobile apps, and digital solutions that deliver results.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+      <Button asChild className="bg-gray-900 hover:bg-gray-600 text-white px-6 py-3 text-base sm:text-lg w-full sm:w-auto">
+        <Link href="/contact">Get a Free Consultation</Link>
+      </Button>
+      <Button asChild variant="outline" className="px-6 py-3 text-base sm:text-lg w-full sm:w-auto">
+        <Link href="/services/web">See Our Work</Link>
+      </Button>
+    </div>
+  </section>
 
-      <div className="bg-white flex w-full h-[800px] justify-center items-center">
-        <video
-           src="/video/home_vdo.mp4"
-          // src="https://v.ftcdn.net/00/48/31/12/700_F_48311251_QBFZ12uyt4op5MORsYTYiTxn6AXu1ZhI_ST.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-[800px] object-cover rounded-4xl mx-4"
-          aria-hidden="true"  
-        />
+  {/* Video Section */}
+  <div className="bg-white flex w-full justify-center items-center px-2 sm:px-6">
+    <video
+      src="/video/home_vdo.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full max-h-[800px] aspect-video object-cover rounded-3xl"
+      aria-hidden="true"
+    />
+  </div>
+
+  {/* Services Section */}
+  <section id="services" className="py-16 sm:py-20 bg-white">
+    <div className="w-full mx-auto px-2 sm:px-6">
+      <h2 className="text-lg sm:text-xl font-bold mb-8 text-gray-900 uppercase tracking-wide">
+        OUR SERVICES
+      </h2>
+      <div
+        className="flex flex-row gap-4 sm:gap-6 overflow-x-hidden pb-4 scrollbar-hide cursor-grab select-none active:cursor-grabbing touch-pan-x"
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
+        {services.map((service, index) => (
+          <ServiceCard
+            key={index}
+            title={service.title}
+            description={service.description}
+            bgColor={service.bgColor}
+            textColor={service.textColor}
+            accentColor={service.accentColor}
+            borderColor={service.borderColor}
+            services={service.services}
+          />
+        ))}
       </div>
+    </div>
+  </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="w-full mx-auto px-6">
-          <h2 className="text-xl font-bold mb-8 text-gray-900 uppercase tracking-wide">OUR SERVICES</h2>
-          <div 
-            className="flex flex-row gap-6 overflow-x-auto pb-4 scrollbar-hide cursor-grab select-none active:cursor-grabbing"
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none'
-            }}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-          >
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                title={service.title}
-                description={service.description}
-                bgColor={service.bgColor}
-                textColor={service.textColor}
-                accentColor={service.accentColor}
-                borderColor={service.borderColor}
-                services={service.services} 
-              />  
-            ))}
-          </div>
-        </div>
-      </section>
+  {/* Case Studies */}
+  <CaseStudiesSection />
 
-      {/* Why Choose Us */}
-     <CaseStudiesSection/>
-      {/* Call To Action */}
-      <section className="py-20 bg-gray-900 text-white text-center">
-        <h2 className="text-4xl font-bold mb-6">Let's Build Something Amazing</h2>
-        <p className="text-lg text-gray-300 mb-8">
-          Whether it's a website, mobile app, or custom solution — we're here to make it happen.
-        </p>
-        <Button asChild className="bg-white text-gray-900 hover:bg-gray-200 px-8 py-4 text-lg">
-          <Link href="/contact">Request a Proposal</Link>
-        </Button>
-      </section>  
+  {/* Call To Action */}
+  <section className="py-16 sm:py-20 mb-16 bg-gray-900 text-white text-center px-4">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+      Let's Build Something Amazing
+    </h2>
+    <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+      Whether it's a website, mobile app, or custom solution — we're here to make it happen.
+    </p>
+    <Button asChild className="bg-white text-gray-900 hover:bg-gray-200 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+      <Link href="/contact">Request a Proposal</Link>
+    </Button>
+  </section>
+</main>
 
-      {/* Custom CSS for scrollbar hiding */}
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
-    </main>
   )
 }

@@ -170,30 +170,20 @@ export default function ModernLayeredScroll() {
                     </div>
 
                     {/* Video */}
-                    <div className="relative">
-                     <div className="relative w-[800px] h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
+<div className="relative">
+  <div className="relative w-full max-w-[800px] aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+    <video
+      src={section.video}
+      className="absolute inset-0 w-full h-full object-cover"
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+    <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent pointer-events-none" />
+  </div>
+</div>
 
-                        <video
-                          src={section.video}
-                          className="absolute inset-0 w-full h-full"
-                          allow="autoplay; fullscreen; picture-in-picture"
-                          allowFullScreen
-                          title={`video-${section.id}`}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                        />
-
-                        {/* Video overlay effects */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent pointer-events-none" />
-                      </div>
-
-                      {/* Floating elements */}
-                      <div className={`absolute -top-6 -left-6 w-12 h-12 ${section.accent.replace('text-', 'bg-').replace('600', '500')} rounded-2xl flex items-center justify-center text-white font-bold shadow-lg`}>
-                        {section.id}
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
