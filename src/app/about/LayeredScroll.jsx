@@ -57,7 +57,7 @@ export default function ModernLayeredScroll() {
       title: "Mobile Apps That Users Love & Businesses Trust",
       subtitle: "App Development",
       text: `Transform your ideas into powerful mobile applications. We develop native iOS and Android apps, as well as cross-platform solutions that deliver seamless performance. Our apps are built with scalability in mind, ensuring they grow with your business while providing exceptional user experiences.`,
-       video: "/video/about_website.mp4",
+       video: "/video/about_app.mp4",
       icon: "📱"
     },
     {
@@ -67,7 +67,7 @@ export default function ModernLayeredScroll() {
       title: "Professional Video Editing That Tells Your Story",
       subtitle: "Video Editing",
       text: `Bring your vision to life with our expert video editing services. From corporate videos to social media content, we craft compelling narratives that engage your audience. Our editors combine technical expertise with creative storytelling to produce videos that make an impact and drive engagement.`,
-       video: "/video/about_website.mp4",
+       video: "/video/about_editing.mp4",
       icon: "🎬"
     },
     {
@@ -77,7 +77,7 @@ export default function ModernLayeredScroll() {
       title: "Stunning VFX & Motion Graphics That Wow",
       subtitle: "Visual Effects",
       text: `Elevate your content with professional visual effects and motion graphics. From cinematic VFX to animated logos, we create visual magic that captivates audiences. Our VFX artists use industry-leading tools to deliver Hollywood-quality effects that make your projects stand out from the competition.`,
-       video: "/video/about_website.mp4",
+       video: "/video/about_vfx.mp4",
       icon: "✨"
     },
   ];
@@ -171,7 +171,8 @@ export default function ModernLayeredScroll() {
 
                     {/* Video */}
                     <div className="relative">
-                      <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
+                     <div className="relative w-[800px] h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
+
                         <video
                           src={section.video}
                           className="absolute inset-0 w-full h-full"
