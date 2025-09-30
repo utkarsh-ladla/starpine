@@ -7,6 +7,7 @@ import CaseStudiesSection from "./CaseStudiesSection";
 
 export default function HomePage() {
   // Drag to scroll functionality
+  // Mouse events (existing)
   const handleMouseDown = (e) => {
     const slider = e.currentTarget;
     slider.isDown = true;
@@ -27,100 +28,121 @@ export default function HomePage() {
     if (!slider.isDown) return;
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
-    const walk = (x - slider.startX) * 1.5; // Scroll speed
+    const walk = (x - slider.startX) * 1.5;
     slider.scrollLeft = slider.scrollLeft - walk;
-    slider.startX = x; // Update start position for smoother scrolling
+    slider.startX = x;
   };
 
-const services = [
-  {
-    title: "Web Development",
-    description: "Modern, scalable and responsive websites tailored to your business needs",
-    bgColor: "bg-white", // Clean white background
-    textColor: "text-gray-900", // Dark text for contrast
-    accentColor: "bg-blue-50", // Soft blue accent
-    borderColor: "border-blue-100",
-    services: [
-      "Custom Website Development",
-      "E-commerce Development",
-      "CMS Development (WordPress, Joomla, etc.)",
-      "Landing Page Design",
-      "Website Maintenance & Support"
-    ]
-  },
-  {
-    title: "App Development",
-    description: "High-performance mobile and web applications with seamless user experience",
-    bgColor: "bg-white",
-    textColor: "text-gray-900",
-    accentColor: "bg-emerald-50",
-    borderColor: "border-emerald-100",
-    services: [
-      "iOS App Development",
-      "Android App Development",
-      "Cross-Platform App Development (React Native, Flutter)",
-      "Progressive Web Apps (PWA)",
-      "App Maintenance & Support"
-    ]
-  },
-  {
-    title: "Content Programs",
-    description: "Channel-specific content at scale",
-    bgColor: "bg-white",
-    textColor: "text-gray-900",
-    accentColor: "bg-purple-50",
-    borderColor: "border-purple-100",
-    services: [
-      "Branded Content Library",
-      "Motion Design & 3D Content",
-      "Custom Content Program"
-    ]
-  },
-  {
-    title: "Social Media Programs",
-    description: "Increase reach and improve engagement",
-    bgColor: "bg-white",
-    textColor: "text-gray-900",
-    accentColor: "bg-pink-50",
-    borderColor: "border-pink-100",
-    services: [
-      "Platform-Specific Content",
-      "Paid Campaign Content",
-      "Social Media Management",
-      "Influencer Programs",
-      "Custom Social Media Program"
-    ]
-  },
-  {
-    title: "Paid Media",
-    description: "Drive conversion with the right audience",
-    bgColor: "bg-white",
-    textColor: "text-gray-900",
-    accentColor: "bg-amber-50",
-    borderColor: "border-amber-100",
-    services: [
-      "Basic Media",
-      "Intermediate Paid Media",
-      "Advanced Paid Media",
-      "Custom Paid Media Program"
-    ]
-  },
-  {
-    title: "Brand Programs",
-    description: "Aligning values, brand and identity",
-    bgColor: "bg-white",
-    textColor: "text-gray-900",
-    accentColor: "bg-rose-50",
-    borderColor: "border-rose-100",
-    services: [
-      "Brand New",
-      "Brand Refresh",
-      "Brand Extension",
-      "Website Creation",
-      "Custom Brand Program"
-    ]
-  }
-];
+  // --- Touch events for mobile ---
+  const handleTouchStart = (e) => {
+    const slider = e.currentTarget;
+    slider.isDown = true;
+    slider.startX = e.touches[0].pageX - slider.offsetLeft;
+    slider.scrollLeft = slider.scrollLeft;
+  };
+
+  const handleTouchMove = (e) => {
+    const slider = e.currentTarget;
+    if (!slider.isDown) return;
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - slider.startX) * 1.5;
+    slider.scrollLeft = slider.scrollLeft - walk;
+    slider.startX = x;
+  };
+
+  const handleTouchEnd = (e) => {
+    e.currentTarget.isDown = false;
+  };
+
+  const services = [
+    {
+      title: "Web Development",
+      description: "Modern, scalable and responsive websites tailored to your business needs",
+      bgColor: "bg-white", // Clean white background
+      textColor: "text-gray-900", // Dark text for contrast
+      accentColor: "bg-blue-50", // Soft blue accent
+      borderColor: "border-blue-100",
+      services: [
+        "Custom Website Development",
+        "E-commerce Development",
+        "CMS Development (WordPress, Joomla, etc.)",
+        "Landing Page Design",
+        "Website Maintenance & Support"
+      ]
+    },
+    {
+      title: "App Development",
+      description: "High-performance mobile and web applications with seamless user experience",
+      bgColor: "bg-white",
+      textColor: "text-gray-900",
+      accentColor: "bg-emerald-50",
+      borderColor: "border-emerald-100",
+      services: [
+        "iOS App Development",
+        "Android App Development",
+        "Cross-Platform App Development (React Native, Flutter)",
+        "Progressive Web Apps (PWA)",
+        "App Maintenance & Support"
+      ]
+    },
+    {
+      title: "Content Programs",
+      description: "Channel-specific content at scale",
+      bgColor: "bg-white",
+      textColor: "text-gray-900",
+      accentColor: "bg-purple-50",
+      borderColor: "border-purple-100",
+      services: [
+        "Branded Content Library",
+        "Motion Design & 3D Content",
+        "Custom Content Program"
+      ]
+    },
+    {
+      title: "Social Media Programs",
+      description: "Increase reach and improve engagement",
+      bgColor: "bg-white",
+      textColor: "text-gray-900",
+      accentColor: "bg-pink-50",
+      borderColor: "border-pink-100",
+      services: [
+        "Platform-Specific Content",
+        "Paid Campaign Content",
+        "Social Media Management",
+        "Influencer Programs",
+        "Custom Social Media Program"
+      ]
+    },
+    {
+      title: "Paid Media",
+      description: "Drive conversion with the right audience",
+      bgColor: "bg-white",
+      textColor: "text-gray-900",
+      accentColor: "bg-amber-50",
+      borderColor: "border-amber-100",
+      services: [
+        "Basic Media",
+        "Intermediate Paid Media",
+        "Advanced Paid Media",
+        "Custom Paid Media Program"
+      ]
+    },
+    {
+      title: "Brand Programs",
+      description: "Aligning values, brand and identity",
+      bgColor: "bg-white",
+      textColor: "text-gray-900",
+      accentColor: "bg-rose-50",
+      borderColor: "border-rose-100",
+      services: [
+        "Brand New",
+        "Brand Refresh",
+        "Brand Extension",
+        "Website Creation",
+        "Custom Brand Program"
+      ]
+    }
+  ];
 
   const features = [
     {
@@ -145,124 +167,127 @@ const services = [
     },
   ]
 
-const ServiceCard = ({ title, description, bgColor, textColor, accentColor, borderColor, services }) => {
-  return (
-    <div
-      className={` ${bgColor} ${textColor} ${borderColor} rounded-3xl p-8 min-h-[480px] min-w-[380px] flex flex-col justify-between border shadow-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
-    >
-      {/* Header with accent color */}
-      <div className="flex-1">
-        <div className={`${accentColor} w-12 h-12 rounded-2xl mb-6 flex items-center justify-center`}>
-          <div className="w-6 h-6 bg-current opacity-20 rounded-lg"></div>
-        </div>
-        
-        <h3 className="text-2xl font-semibold mb-4 leading-tight">{title}</h3>
-        <p className="mb-8 text-sm text-gray-600 leading-relaxed">{description}</p>
-
-        <div className="space-y-3">
-          {services.slice(0, 4).map((service, index) => (
-            <div key={index} className="flex items-start gap-3">
-              <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-              <span className="text-gray-700 text-sm leading-relaxed">{service}</span>
-            </div>
-          ))}
-          {services.length > 4 && (
-            <div className="flex items-center gap-3">
-              <div className="w-1.5 h-1.5 bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
-              <span className="text-gray-500 text-sm">+{services.length - 4} more services</span>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="pt-6">
-        <button className="w-full bg-gray-50 hover:bg-gray-100 text-gray-800 px-6 py-4 rounded-2xl text-sm font-medium transition-colors border border-gray-100 hover:border-gray-200">
-          Learn More
-        </button>
-      </div>
-    </div>
-  );
-};
-
-  return (
-<main className="px-4 sm:px-6 lg:px-16 min-h-screen text-gray-800">
-  {/* Hero Section */}
-  <section className="relative flex flex-col items-center justify-center text-center py-16 sm:py-20 px-4 bg-white">
-    <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
-      Websites & Apps That <span className="text-gray-600">Fuel Growth</span>
-    </h1>
-    <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mb-10">
-      We help startups and businesses bring ideas to life with high-performing websites,
-      mobile apps, and digital solutions that deliver results.
-    </p>
-    <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-      <Button asChild className="bg-gray-900 hover:bg-gray-600 text-white px-6 py-3 text-base sm:text-lg w-full sm:w-auto">
-        <Link href="/contact">Get a Free Consultation</Link>
-      </Button>
-      <Button asChild variant="outline" className="px-6 py-3 text-base sm:text-lg w-full sm:w-auto">
-        <Link href="/services/web">See Our Work</Link>
-      </Button>
-    </div>
-  </section>
-
-  {/* Video Section */}
-  <div className="bg-white flex w-full justify-center items-center px-2 sm:px-6">
-    <video
-      src="/video/home_vdo.mp4"
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="w-full max-h-[800px] aspect-video object-cover rounded-3xl"
-      aria-hidden="true"
-    />
-  </div>
-
-  {/* Services Section */}
-  <section id="services" className="py-16 sm:py-20 bg-white">
-    <div className="w-full mx-auto px-2 sm:px-6">
-      <h2 className="text-lg sm:text-xl font-bold mb-8 text-gray-900 uppercase tracking-wide">
-        OUR SERVICES
-      </h2>
+  const ServiceCard = ({ title, description, bgColor, textColor, accentColor, borderColor, services }) => {
+    return (
       <div
-        className="flex flex-row gap-4 sm:gap-6 overflow-x-hidden pb-4 scrollbar-hide cursor-grab select-none active:cursor-grabbing touch-pan-x"
-        onMouseDown={handleMouseDown}
-        onMouseLeave={handleMouseLeave}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
+        className={` ${bgColor} ${textColor} ${borderColor} rounded-3xl p-8 min-h-[480px] min-w-[380px] flex flex-col justify-between border shadow-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
       >
-        {services.map((service, index) => (
-          <ServiceCard
-            key={index}
-            title={service.title}
-            description={service.description}
-            bgColor={service.bgColor}
-            textColor={service.textColor}
-            accentColor={service.accentColor}
-            borderColor={service.borderColor}
-            services={service.services}
-          />
-        ))}
+        {/* Header with accent color */}
+        <div className="flex-1">
+          <div className={`${accentColor} w-12 h-12 rounded-2xl mb-6 flex items-center justify-center`}>
+            <div className="w-6 h-6 bg-current opacity-20 rounded-lg"></div>
+          </div>
+
+          <h3 className="text-2xl font-semibold mb-4 leading-tight">{title}</h3>
+          <p className="mb-8 text-sm text-gray-600 leading-relaxed">{description}</p>
+
+          <div className="space-y-3">
+            {services.slice(0, 4).map((service, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-700 text-sm leading-relaxed">{service}</span>
+              </div>
+            ))}
+            {services.length > 4 && (
+              <div className="flex items-center gap-3">
+                <div className="w-1.5 h-1.5 bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
+                <span className="text-gray-500 text-sm">+{services.length - 4} more services</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="pt-6">
+          <button className="w-full bg-gray-50 hover:bg-gray-100 text-gray-800 px-6 py-4 rounded-2xl text-sm font-medium transition-colors border border-gray-100 hover:border-gray-200">
+            Learn More
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
+    );
+  };
 
-  {/* Case Studies */}
-  <CaseStudiesSection />
+  return (
+    <main className="px-4 sm:px-6 lg:px-16 min-h-screen text-gray-800">
+      {/* Hero Section */}
+      <section className="relative flex flex-col items-center justify-center text-center py-16 sm:py-20 px-4 bg-white">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
+          Websites & Apps That <span className="text-gray-600">Fuel Growth</span>
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mb-10">
+          We help startups and businesses bring ideas to life with high-performing websites,
+          mobile apps, and digital solutions that deliver results.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <Button asChild className="bg-gray-900 hover:bg-gray-600 text-white px-6 py-3 text-base sm:text-lg w-full sm:w-auto">
+            <Link href="/contact">Get a Free Consultation</Link>
+          </Button>
+          <Button asChild variant="outline" className="px-6 py-3 text-base sm:text-lg w-full sm:w-auto">
+            <Link href="/services/web">See Our Work</Link>
+          </Button>
+        </div>
+      </section>
 
-  {/* Call To Action */}
-  <section className="py-16 sm:py-20 mb-16 bg-gray-900 text-white text-center px-4">
-    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-      Let's Build Something Amazing
-    </h2>
-    <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-      Whether it's a website, mobile app, or custom solution — we're here to make it happen.
-    </p>
-    <Button asChild className="bg-white text-gray-900 hover:bg-gray-200 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
-      <Link href="/contact">Request a Proposal</Link>
-    </Button>
-  </section>
-</main>
+      {/* Video Section */}
+      <div className="bg-white flex w-full justify-center items-center px-2 sm:px-6">
+        <video
+          src="/video/home_vdo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full max-h-[800px] aspect-video object-cover rounded-3xl"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* Services Section */}
+      <section id="services" className="py-16 sm:py-20 bg-white">
+        <div className="w-full mx-auto px-2 sm:px-6">
+          <h2 className="text-lg sm:text-xl font-bold mb-8 text-gray-900 uppercase tracking-wide">
+            OUR SERVICES
+          </h2>
+          <div
+            className="flex flex-row gap-4 sm:gap-6 overflow-x-hidden pb-4 scrollbar-hide cursor-grab select-none active:cursor-grabbing touch-pan-x"
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {services.map((service, index) => (
+              <ServiceCard
+                key={index}
+                title={service.title}
+                description={service.description}
+                bgColor={service.bgColor}
+                textColor={service.textColor}
+                accentColor={service.accentColor}
+                borderColor={service.borderColor}
+                services={service.services}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies */}
+      <CaseStudiesSection />
+
+      {/* Call To Action */}
+      <section className="py-16 sm:py-20 mb-16 bg-gray-900 text-white text-center px-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+          Let's Build Something Amazing
+        </h2>
+        <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          Whether it's a website, mobile app, or custom solution — we're here to make it happen.
+        </p>
+        <Button asChild className="bg-white text-gray-900 hover:bg-gray-200 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+          <Link href="/contact">Request a Proposal</Link>
+        </Button>
+      </section>
+    </main>
 
   )
 }
