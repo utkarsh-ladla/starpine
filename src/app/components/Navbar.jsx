@@ -34,12 +34,17 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a 
+<img 
+  src="/logonew2.png" 
+  alt="Logo"
+  className="h-56 w=26 w-auto"
+/>
+            {/* <a 
               href="/" 
               className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent hover:from-gray-600 hover:to-gray-800 transition-all duration-300 hover:scale-105"
             >
               StarPine
-            </a>
+            </a> */}
           </div>
 
           {/* Desktop Navigation */}
