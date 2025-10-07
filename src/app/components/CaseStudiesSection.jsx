@@ -52,111 +52,86 @@ const CaseStudiesSection = () => {
     }
   ];
 
-  return (
-    <div className="min-h-screen">
+ return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Case Studies Grid */}
+      <section className="py-20 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r text-gray-600 bg-clip-text ">
+            Featured Work
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Transforming ideas into exceptional digital experiences
+          </p>
+        </div>
 
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {caseStudies.map((study) => (
+            <div
+              key={study.id}
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+            >
+              {/* Image Container with Overlay */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={study.image}
+                  alt={study.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                
+                {/* Category Badge */}
+                <div className="absolute top-4 right-4">
+                  <span className="px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-gray-800 shadow-lg">
+                    {study.category}
+                  </span>
+                </div>
+
+                {/* Company Name Overlay */}
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-white/90 text-sm font-bold tracking-wider">
+                    {study.company}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300">
+                  {study.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">
+                  {study.description}
+                </p>
+
+                {/* View Case Study Link */}
+                <div className="flex items-center text-blue-600 font-semibold group-hover:text-purple-600 transition-colors duration-300">
+                  <span className="text-sm">View Case Study</span>
+                  <svg
+                    className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Decorative Corner Element */}
+              <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-transparent rounded-br-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 w-full mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Why Choose Us</h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-          We combine creativity, technology, and expertise to deliver solutions that help your business stand out. Here's why clients trust us:
-        </p>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-left max-w-5xl mx-auto">
-          <div className="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-lg mb-3 text-gray-900">Web Development</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Modern, responsive websites built with cutting-edge technologies for optimal performance and user experience.
-            </p>
-          </div>
-
-          <div className="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-lg mb-3 text-gray-900">App Development</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Native and cross-platform mobile applications that deliver seamless functionality across all devices.
-            </p>
-          </div>
-
-          <div className="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-lg mb-3 text-gray-900">Design</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Creative UI/UX design and branding solutions that captivate audiences and drive engagement.
-            </p>
-          </div>
-
-          <div className="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-lg mb-3 text-gray-900">Video Editing</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Professional video production and editing services that tell your story with cinematic quality.
-            </p>
-          </div>
-
-          <div className="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-lg mb-3 text-gray-900">VFX</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Advanced visual effects and motion graphics that bring imagination to life with stunning realism.
-            </p>
-          </div>
-
-          <div className="p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-lg mb-3 text-gray-900">Marketing</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Strategic digital marketing campaigns that amplify your brand reach and drive measurable results.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 px-6 max-w-4xl mx-auto text-center">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-xl opacity-90 mb-8">
-            Let's create something amazing together. One pixel at a time.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition-colors font-semibold">
-              Start Your Project
-            </button>
-            <button className="px-8 py-3 border-2 border-white text-white rounded-full hover:bg-white hover:text-blue-600 transition-colors font-semibold">
-              View Our Process
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
